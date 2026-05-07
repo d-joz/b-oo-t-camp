@@ -10,9 +10,13 @@ public class Rectangle implements Shape {
     this.breadth = breadth;
   }
 
-  public static Rectangle create(int length, int breadth) {
+  public static Rectangle create(double length, double breadth) {
 
     return new Rectangle(length, breadth);
+  }
+
+  public static Rectangle createSquare(int side) {
+    return create(side, side);
   }
 
   @Override

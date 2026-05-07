@@ -30,4 +30,16 @@ class RectangleTest {
     Rectangle rectangle = Rectangle.create(1, 1);
     assertEquals(4, rectangle.perimeter());
   }
+
+  @Test
+  void shouldReturnArea16Of4By4Square() {
+    Rectangle square = Rectangle.createSquare(4);
+    assertEquals(16, square.area());
+  }
+
+  @Test
+  void shouldReturnPerimeter20Of5By5Square() {
+    Rectangle square = Rectangle.createSquare(5);
+    assertEquals(20, square.perimeter());
+  }
 }
