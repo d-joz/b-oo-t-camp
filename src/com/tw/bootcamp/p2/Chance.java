@@ -26,4 +26,8 @@ public class Chance {
   public int hashCode() {
     return Objects.hashCode(probability);
   }
+
+  public Chance union(Chance otherChance) {
+    return new Chance(probability + otherChance.probability - intersection(otherChance).probability);
+  }
 }

@@ -40,4 +40,11 @@ class ChanceTest {
 
     assertEquals(new Chance(1 / 6d), chanceOfGetting3InDiceRoll );
   }
+
+  @Test
+  void shouldGetAChanceOfGettingAtleastOneTailWhenTwoDiceRoll() {
+    Chance chanceOfGettingATail = new Chance(0.5);
+
+    assertEquals(new Chance(0.75), chanceOfGettingATail.union(chanceOfGettingATail));
+  }
 }
