@@ -12,7 +12,13 @@ class ProbabilityTest {
     Probability probability = new Probability(coin);
 
     assertEquals(0.5, probability.getFace());
+  }
 
+  @Test
+  void shouldReturnProbabilityOfNotGettingAfaceOfaCoin() {
+    Coin coin = new Coin();
+    Probability probability = new Probability(coin);
 
+    assertEquals(0.5, probability.notGettingAFace());
   }
 }

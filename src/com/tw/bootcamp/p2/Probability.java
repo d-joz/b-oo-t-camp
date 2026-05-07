@@ -10,4 +10,8 @@ public class Probability {
   public double getFace() {
     return 1 / coin.getFaces();
   }
+
+  public double notGettingAFace() {
+    return 1- (1/coin.getFaces());
+  }
 }
