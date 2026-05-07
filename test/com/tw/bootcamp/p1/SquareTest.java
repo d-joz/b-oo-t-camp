@@ -10,4 +10,10 @@ class SquareTest {
     Square square = Square.create(4);
     assertEquals(16, square.area());
   }
+
+  @Test
+  void shouldReturnSquarePerimeter() {
+    Square square = Square.create(5);
+    assertEquals(20, square.perimeter());
+  }
 }
