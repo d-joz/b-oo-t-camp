@@ -1,8 +1,9 @@
 package com.tw.bootcamp.p2;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ChanceTest {
 
@@ -14,31 +15,32 @@ class ChanceTest {
   }
 
   @Test
-  void shouldReturnProbabilityOfNotGettingAfaceOfaCoin() {
+  void shouldReturnProbabilityOfNotGettingTailsWhenACoinFlipped() {
     Chance chanceOfGettingTails = new Chance(0.5);
 
     assertEquals(new Chance(0.5), chanceOfGettingTails.not());
   }
 
   @Test
-  void shouldNotChance6To4() {
+  void shouldComplimentTheChance6To4() {
     Chance chance = new Chance(0.6);
 
     assertEquals(new Chance(.4), chance.not());
   }
 
   @Test
-  void shouldGetChanceOfGettingBothTailsWhenFlipped2Coins() {
+  void shouldGetChanceOfGettingBothTailsWhen2CoinsFlipped() {
     Chance chanceOfGettingTails = new Chance(0.5);
 
     assertEquals(new Chance(0.25), chanceOfGettingTails.and(chanceOfGettingTails));
   }
 
   @Test
+  @DisplayName("should get a 'chance of getting 3' in a dice roll")
   void shouldGetAChanceOfGetting3OnADiceRoll() {
     Chance chanceOfGetting3InDiceRoll = new Chance(1 / 6d);
 
-    assertEquals(new Chance(1 / 6d), chanceOfGetting3InDiceRoll );
+    assertEquals(new Chance(1 / 6d), chanceOfGetting3InDiceRoll);
   }
 
   @Test
