@@ -3,31 +3,31 @@ package com.tw.bootcamp.p2;
 import java.util.Objects;
 
 public class Chance {
-  private final double probability;
+  private final double value;
 
-  public Chance(double probability) {
-    this.probability = probability;
+  public Chance(double value) {
+    this.value = value;
   }
-  public Chance complement() {
-    return new Chance(1 - probability);
+  public Chance not() {
+    return new Chance(1 - value);
   }
 
-  public Chance intersection(Chance otherChance) {
-    return new Chance(this.probability * otherChance.probability);
+  public Chance and(Chance other) {
+    return new Chance(this.value * other.value);
+  }
+
+  public Chance or(Chance other) {
+    return this.not().and(other.not()).not();
   }
 
   @Override
   public boolean equals(Object o) {
     if (!(o instanceof Chance chance)) return false;
-    return Double.compare(probability, chance.probability) == 0;
+    return Double.compare(value, chance.value) == 0;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hashCode(probability);
-  }
-
-  public Chance union(Chance otherChance) {
-    return new Chance(probability + otherChance.probability - intersection(otherChance).probability);
+    return Objects.hashCode(value);
   }
 }

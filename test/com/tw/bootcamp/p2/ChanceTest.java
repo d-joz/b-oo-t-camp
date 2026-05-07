@@ -17,21 +17,21 @@ class ChanceTest {
   void shouldReturnProbabilityOfNotGettingAfaceOfaCoin() {
     Chance chanceOfGettingTails = new Chance(0.5);
 
-    assertEquals(new Chance(0.5), chanceOfGettingTails.complement());
+    assertEquals(new Chance(0.5), chanceOfGettingTails.not());
   }
 
   @Test
-  void shouldComplementChance6To4() {
+  void shouldNotChance6To4() {
     Chance chance = new Chance(0.6);
 
-    assertEquals(new Chance(.4), chance.complement());
+    assertEquals(new Chance(.4), chance.not());
   }
 
   @Test
   void shouldGetChanceOfGettingBothTailsWhenFlipped2Coins() {
     Chance chanceOfGettingTails = new Chance(0.5);
 
-    assertEquals(new Chance(0.25), chanceOfGettingTails.intersection(chanceOfGettingTails));
+    assertEquals(new Chance(0.25), chanceOfGettingTails.and(chanceOfGettingTails));
   }
 
   @Test
@@ -45,6 +45,7 @@ class ChanceTest {
   void shouldGetAChanceOfGettingAtleastOneTailWhenTwoDiceRoll() {
     Chance chanceOfGettingATail = new Chance(0.5);
 
-    assertEquals(new Chance(0.75), chanceOfGettingATail.union(chanceOfGettingATail));
+    assertEquals(new Chance(0.75), chanceOfGettingATail.or(chanceOfGettingATail));
   }
+
 }
