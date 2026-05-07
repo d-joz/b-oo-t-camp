@@ -8,10 +8,17 @@ public class Probability {
   }
 
   public double getFace() {
-    return 1 / coin.getFaces();
+    return coin.getProbability();
   }
 
   public double notGettingAFace() {
-    return 1- (1/coin.getFaces());
+    return 1 - coin.getProbability();
   }
+
+  public double gettingAFaceFrom(int count) {
+    double notGettingTails = Math.pow(notGettingAFace() , count);
+
+    return 1 - notGettingTails;
+  }
+
 }

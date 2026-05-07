@@ -8,9 +8,9 @@ class CoinTest {
 
   @Test
   void shouldReturnFairChanceOfGettingTail() {
-    Coin coin = new Coin();
+    Coin coin = Coin.create(.5);
 
-    assertEquals(2, coin.getFaces());
+    assertEquals(0.5, coin.getProbability());
   }
 
 }

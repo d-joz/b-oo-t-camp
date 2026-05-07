@@ -1,13 +1,17 @@
 package com.tw.bootcamp.p2;
 
 public class Coin {
-  private final int faces;
+  private final double probability;
 
-  public Coin() {
-    this.faces = 2;
+  public Coin(double tailProbability) {
+    this.probability = tailProbability;
   }
 
-  public double getFaces() {
-    return faces;
+  public static Coin create(double tailProbability) {
+    return new Coin(tailProbability);
+  }
+
+  public double getProbability() {
+    return probability;
   }
 }
