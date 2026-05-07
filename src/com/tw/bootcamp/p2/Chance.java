@@ -12,6 +12,10 @@ public class Chance {
     return new Chance(1 - probability);
   }
 
+  public Chance intersection(Chance otherChance) {
+    return new Chance(this.probability * otherChance.probability);
+  }
+
   @Override
   public boolean equals(Object o) {
     if (!(o instanceof Chance chance)) return false;
@@ -21,9 +25,5 @@ public class Chance {
   @Override
   public int hashCode() {
     return Objects.hashCode(probability);
-  }
-
-  public Chance intersection(Chance otherChance) {
-    return new Chance(this.probability * otherChance.probability);
   }
 }

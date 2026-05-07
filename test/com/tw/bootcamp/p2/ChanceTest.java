@@ -23,6 +23,7 @@ class ChanceTest {
   @Test
   void shouldComplementChance6To4() {
     Chance chance = new Chance(0.6);
+
     assertEquals(new Chance(.4), chance.complement());
   }
 
@@ -33,4 +34,10 @@ class ChanceTest {
     assertEquals(new Chance(0.25), chanceOfGettingTails.intersection(chanceOfGettingTails));
   }
 
+  @Test
+  void shouldGetAChanceOfGetting3OnADiceRoll() {
+    Chance chanceOfGetting3InDiceRoll = new Chance(1 / 6d);
+
+    assertEquals(new Chance(1 / 6d), chanceOfGetting3InDiceRoll );
+  }
 }
