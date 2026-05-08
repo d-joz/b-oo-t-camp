@@ -28,8 +28,6 @@ public class Length  {
     return String.format("%s %s",value , unit);
   }
 
-
-
   public static Length createFeet (double value){
     return new Length(value, LengthUnit.FEET);
   }
