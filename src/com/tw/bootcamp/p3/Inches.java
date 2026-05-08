@@ -2,7 +2,7 @@ package com.tw.bootcamp.p3;
 
 import java.util.Objects;
 
-public class Inches {
+public class Inches implements ConvertableToInches {
   public final double value;
 
   public Inches(double value) {
@@ -11,12 +11,15 @@ public class Inches {
 
   @Override
   public boolean equals(Object o) {
-
-    if (o instanceof Feet feet) {
-      return value == feet.value * 12;
+    if (o instanceof ConvertableToInches convertable) {
+      return value == (convertable.convertToInches()).value;
     }
     if (!(o instanceof Inches inches)) return false;
     return Double.compare(value, inches.value) == 0;
+  }
+  @Override
+  public Inches convertToInches() {
+    return this;
   }
 
   @Override
