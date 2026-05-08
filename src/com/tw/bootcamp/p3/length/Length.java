@@ -48,19 +48,4 @@ public class Length  {
 
     return new Length(sum, unit);
   }
-  //  @Override
-//  public boolean equals(Object o) {
-//    if (o instanceof ComparableByLength comparable) {
-//      return compare(comparable);
-//    }
-//    return false;
-//  }
-//
-//  @Override
-//  public abstract boolean compare(ComparableByLength other);
-//
-//  @Override
-//  public int hashCode() {
-//    return Objects.hashCode(value);
-//  }
 }
