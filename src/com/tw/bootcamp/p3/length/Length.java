@@ -28,6 +28,8 @@ public class Length  {
     return String.format("%s %s",value , unit);
   }
 
+
+
   public static Length createFeet (double value){
     return new Length(value, LengthUnit.FEET);
   }
@@ -41,6 +43,12 @@ public class Length  {
   @Override
   public int hashCode() {
     return Objects.hash(value* unit.conversionFactor);
+  }
+
+  public Length add(Length other) {
+    double sum = ((this.value * this.unit.conversionFactor) + (other.value * other.unit.conversionFactor)) / this.unit.conversionFactor;
+
+    return new Length(sum, unit);
   }
   //  @Override
 //  public boolean equals(Object o) {

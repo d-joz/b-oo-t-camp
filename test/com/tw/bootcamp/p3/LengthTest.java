@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class InchesTest {
+class LengthTest {
   @Test
   void comparesAnInchToAFeet() {
     Length feet = Length.createFeet(1);
@@ -66,4 +66,26 @@ class InchesTest {
   }
 
 
+//  addition
+
+
+  @Test
+  void shouldAdd2InAnd2In() {
+    Length inch1 = Length.createInch(2);
+    Length inch2 = Length.createInch(2);
+
+    Length expected = Length.createInch(4);
+
+    assertEquals(expected, inch1.add(inch2));
+  }
+
+  @Test
+  void shouldAdd2InchesWith2Point5CM() {
+    Length inch = Length.createInch(2);
+    Length centimeter = Length.createCentimeter(2.54);
+
+    Length expected = Length.createInch(3);
+
+    assertEquals(expected, inch.add(centimeter));
+  }
 }
