@@ -1,5 +1,7 @@
 package com.tw.bootcamp.p3;
 
+import com.tw.bootcamp.p3.length.Feet;
+import com.tw.bootcamp.p3.length.Inches;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
