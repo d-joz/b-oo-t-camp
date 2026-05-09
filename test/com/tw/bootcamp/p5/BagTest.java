@@ -9,21 +9,50 @@ class BagTest {
   @Test
   void createsABagAndAddsOne() {
     Bag bag = new Bag(1);
-    Ball ball = new Ball(Color.BLUE);
-    boolean added = bag.add(ball);
+    boolean added = bag.add(Ball.BLUE);
     assertTrue(added);
   }
 
   @Test
   void createsABagAndAddsOnFailsToAddBall() {
     Bag bag = new Bag(1);
-    Ball ball1 = new Ball(Color.BLUE);
-    Ball ball2 = new Ball(Color.GREEN);
-    bag.add(ball1);
-    boolean addedBall2 = bag.add(ball2);
+    bag.add(Ball.BLUE);
+    boolean addedBall2 = bag.add(Ball.GREEN);
 
     assertFalse(addedBall2);
   }
 
+  @Test
+  void shouldFailToAddMoreThan3GreenBAlls() {
+    Bag bag = new Bag(12);
+    bag.add(Ball.GREEN);
+    bag.add(Ball.GREEN);
+    bag.add(Ball.GREEN);
+    boolean addedBall2 = bag.add(Ball.GREEN);
+    System.out.println(bag);
+    assertFalse(addedBall2);
+  }
 
+  @Test
+  void shouldFailToAddMoreThan2RedBallsSince1GreenIsPresent() {
+    Bag bag = new Bag(12);
+    bag.add(Ball.GREEN);
+    bag.add(Ball.RED);
+    bag.add(Ball.RED);
+    boolean added = bag.add(Ball.RED);
+    assertFalse(added);
+  }
+
+  @Test
+  void shouldFailToAddMoreThan2YellowBallsSince5BallsPresent() {
+    Bag bag = new Bag(12);
+    bag.add(Ball.GREEN);
+    bag.add(Ball.RED);
+    bag.add(Ball.RED);
+    bag.add(Ball.YELLOW);
+    bag.add(Ball.YELLOW);
+    boolean added = bag.add(Ball.YELLOW);
+    System.out.println(bag);
+    assertFalse(added);
+  }
 }
